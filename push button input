@@ -1,0 +1,22 @@
+#include <avr/io.h>
+#include<util/delay.h>
+int main(void)
+{
+	DDRA|=1<<PINA0;
+	DDRA&=~(1<<PINA1);
+	PORTA|=1<<PINA1;
+	/* Replace with your application code */
+	while (1)
+	{
+		if(bit_is_clear(PINA,1))
+		{
+			PORTA=0x01;
+			_delay_ms(2000);
+			PORTA=0x00;
+			_delay_ms(2000);
+			PORTA=0x01;
+			_delay_ms(2000);
+		}
+		
+	}
+}
