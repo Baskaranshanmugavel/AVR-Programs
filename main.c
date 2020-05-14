@@ -16,16 +16,17 @@ int main(void)
 	PORTA|=(1<<PA0);
 while(1)
 {
-	
-		PORTD=0x00;
-		PORT|=0x01;
-		_delay_ms(100);
-		PORTD=0x01;
-		PORTD;
-		_delay_ms(100);
+	if(bit_is_clear(PINA,0))
+{
+		PORTD|=(1<<PD0);
+		PORTD&=~(1<<PD1);
+}
+else
+{
+       PORTD=0;
+}
 		
+}
 }
 
-		
-}
 
