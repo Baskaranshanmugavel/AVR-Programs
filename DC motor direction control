@@ -1,0 +1,30 @@
+/*
+ * DC motor circuit.c
+ *
+ * Created: 4/27/2020 10:56:04 PM
+ * Author : Admin
+ */ 
+#define F_CPU 16000000UL 
+#include <avr/io.h>
+#include<util/delay.h>
+
+int main(void)
+{
+	DDRA&=(1<<PA1);
+	DDRD|=(1<<PD0);
+	DDRD|=(1<<PD1);
+	PORTA|=(1<<PA0);
+while(1)
+{
+	
+		PORTD=0x00;
+		PORT|=0x01;
+		_delay_ms(100);
+		PORTD=0x01;
+		PORTD;
+		_delay_ms(100);
+		
+}
+
+		
+}
